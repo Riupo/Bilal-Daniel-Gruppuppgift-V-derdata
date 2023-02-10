@@ -257,7 +257,7 @@ namespace GruppUppgift_Väderdata
                 }
                 else
                 {
-                    count = 0;
+                    count = 0; //s
                 }
             }
         }
