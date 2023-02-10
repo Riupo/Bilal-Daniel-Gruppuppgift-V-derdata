@@ -5,15 +5,16 @@
         static void Main(string[] args)
         {
             //Utomhus.Sökmöjlighet();
-            //Utomhus.SorteringMedeltemperatur();
+            Utomhus.SorteringMedeltemperatur();
             //Utomhus.SorteringFuktighet();
             //Utomhus.MögelRisk();
             //Console.WriteLine("________________");
             //Inomhus.SökmöjlighetInne();
             //Inomhus.SorteringMedeltemperaturInne();
             //Inomhus.SorteringFuktighetInne();
-            Inomhus.MögelRiskInne();
-            Inomhus.SökmöjlighetInne();
+            //Inomhus.MögelRiskInne();
+            //Inomhus.SökmöjlighetInne();
+            //Inomhus.MeteroligiskVinter();
 
             // när vi skapar filerna använd delegate
         }
