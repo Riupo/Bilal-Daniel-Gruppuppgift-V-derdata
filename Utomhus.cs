@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Globalization;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
 namespace GruppUppgift_Väderdata
 {
@@ -185,6 +187,77 @@ namespace GruppUppgift_Väderdata
                     Console.WriteLine("Datum: {0}", group.Key);
                     Console.WriteLine("Medel Luftfuktighet: {0:F2}", group.Average(d => d.Humidity));
                     Console.WriteLine("Medel Temperatur: {0:F2}", group.Average(d => d.Temperature));
+                }
+            }
+        }
+        public static void metelogiskHöst()
+        {
+            Regex regex = new Regex(pattern);
+            string[] lines = System.IO.File.ReadAllLines(filename);
+            var temperatureData = new List<double>();
+            var LuftfuktighetData = new List<double>();
+            foreach (string line in lines)
+            {
+                Match match = regex.Match(line);
+                string date = match.Groups[1].Value;
+                string time = match.Groups[2].Value;
+                string location = match.Groups[3].Value;
+                string temperature = match.Groups[4].Value.Replace(".", ",");
+                string humidity = match.Groups[5].Value;
+                double medeltemp;
+                double medelluftfuktighet;
+                if (double.TryParse(temperature, out medeltemp) && double.TryParse(humidity, out medelluftfuktighet) && location == "Ute")
+                {
+                    temperatureData.Add(medeltemp);
+                    LuftfuktighetData.Add(medelluftfuktighet);
+                }
+            }
+            var dataByDate = lines
+                            .Select(line =>
+                            {
+                                Match match = regex.Match(line);
+                                string date = match.Groups[1].Value;
+                                string temperature = match.Groups[4].Value.Replace(".", ",");
+                                string humidity = match.Groups[5].Value;
+                                double medeltemp;
+                                double medelluftfuktighet;
+                                if (double.TryParse(temperature, out medeltemp) && double.TryParse(humidity, out medelluftfuktighet) && match.Groups[3].Value == "Ute")
+                                {
+                                    return new { Date = date, Temperature = medeltemp, Humidity = medelluftfuktighet };
+                                }
+                                return null;
+                            })
+                            .Where(x => x != null)
+                            .GroupBy(x => x.Date)
+                          //  .OrderBy(x => DateTime.ParseExact(x.Key, "yyyy-MM-dd", CultureInfo.InvariantCulture))
+                            .ToList();
+            int count = 0;
+            DateTime firstDate = DateTime.MinValue;
+            foreach (var group in dataByDate)
+            {
+                DateTime date = DateTime.ParseExact(group.Key, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                double avgTemperature = group.Average(d => d.Temperature);
+
+                if (avgTemperature <= 10 && date.Month >= 09 && date.Month <= 11)
+                {
+                    count++;
+                    if (count == 1)
+                    {
+                        firstDate = date;
+                    }
+                    if (count >= 5)
+                    {
+                        Console.WriteLine("Första datumet: {0}", firstDate.ToString("yyyy-MM-dd"));
+                        Console.WriteLine("Sista datumet: {0}", date.ToString("yyyy-MM-dd"));
+                        Console.WriteLine("Medel Temperatur: {0:F2}", group.Average(d => d.Temperature));
+                        Console.WriteLine();
+                        count = 0;
+                        firstDate = DateTime.MinValue;
+                    }
+                }
+                else
+                {
+                    count = 0; //s
                 }
             }
         }
