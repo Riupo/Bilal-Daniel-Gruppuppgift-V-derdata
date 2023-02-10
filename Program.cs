@@ -7,7 +7,12 @@
             //Utomhus.Sökmöjlighet();
             //Utomhus.SorteringMedeltemperatur();
             //Utomhus.SorteringFuktighet();
-            Utomhus.MögelRisk();
+            //Utomhus.MögelRisk();
+            //Console.WriteLine("________________");
+            //Inomhus.SökmöjlighetInne();
+            //Inomhus.SorteringMedeltemperaturInne();
+            //Inomhus.SorteringFuktighetInne();
+            Inomhus.MögelRiskInne();
 
             // när vi skapar filerna använd delegate
         }
