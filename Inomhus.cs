@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +10,11 @@ namespace GruppUppgift_Väderdata
     public class Inomhus
     {
         static string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)";
-<<<<<<< HEAD
         static string filename = @"C:\Users\danie\source\repos\Väderdata\Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt";
         public static void SökmöjlighetInne()
         {
             Regex regex = new Regex(pattern);
-      
-=======
-        static string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt";
-        public static void SökmöjlighetInne()
-        {
-            Regex regex = new Regex(pattern);
 
->>>>>>> cfaa6dc6969ae1e29d1500c423c4c725419b95cd
             string[] lines = System.IO.File.ReadAllLines(filename);
             Console.WriteLine("Ange datumet du vill kolla medeltemperaturen på");
             string datum = Console.ReadLine();
@@ -91,13 +83,8 @@ namespace GruppUppgift_Väderdata
             }
         }
         public static void SorteringFuktighetInne()
-<<<<<<< HEAD
-        {  
-            Regex regex = new Regex(pattern); 
-=======
         {
             Regex regex = new Regex(pattern);
->>>>>>> cfaa6dc6969ae1e29d1500c423c4c725419b95cd
             string[] lines = System.IO.File.ReadAllLines(filename);
             var LuftfuktighetData = new List<double>();
             foreach (string line in lines)
