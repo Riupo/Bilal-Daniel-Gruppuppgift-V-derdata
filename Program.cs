@@ -6,7 +6,7 @@
 
         static void Main(string[] args)
         {
-
+            EnumMetod.Show();
         }
         public static double CalculateMögel(double temperature, double humidity)
         {
