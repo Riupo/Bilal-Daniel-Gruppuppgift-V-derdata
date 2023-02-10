@@ -176,37 +176,5 @@ namespace GruppUppgift_Väderdata
                 }
             }
         }
-        public static void MeteroligiskVinter()
-        {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\danie\source\repos\Väderdata\Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt");
-            Regex regex = new Regex(@"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)");
-            var temperatureData = new List<(string date, double temperature)>();
-
-            foreach (string line in lines)
-            {
-                Match match = regex.Match(line);
-                string date = match.Groups[1].Value;
-                string temperature = match.Groups[4].Value.Replace(".", ",");
-                double medeltemp;
-
-                if (double.TryParse(temperature, out medeltemp) && match.Groups[3].Value == "Ute")
-                {
-                    temperatureData.Add((date, medeltemp));
-                }
-            }
-
-            var dataByDate = temperatureData
-                .Where(x => x.temperature <= 0.0)
-                .GroupBy(x => x.date)
-                .OrderBy(group => group.Key)
-                .Take(5)
-                .ToList();
-
-            foreach (var group in dataByDate)
-            {
-                Console.WriteLine("Datum: {0}", group.Key);
-                Console.WriteLine("Medel temperatur: {0:F2}°C", group.Average(d => d.temperature));
-            }
-        }
     }
 }

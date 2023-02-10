@@ -11,7 +11,7 @@ namespace GruppUppgift_Väderdata
     {
         public static void Printerafilen()
         {
-            string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)";
+            string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(-?\d+\.\d+),(\d+)";
             Regex regex = new Regex(pattern);
 
             string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Textfiler\TextFile1.txt";

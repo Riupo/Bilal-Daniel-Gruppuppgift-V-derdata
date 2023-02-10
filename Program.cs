@@ -1,22 +1,20 @@
 ﻿namespace GruppUppgift_Väderdata
 {
-    internal class Program
+    public class Program
     {
+        public delegate double MögelDelegat(double temp, double hum);
+
         static void Main(string[] args)
         {
+            // Utomhus.metelogiskVinter();
+            // Utomhus.SorteringMedeltemperatur();
             //Utomhus.Sökmöjlighet();
-            Utomhus.SorteringMedeltemperatur();
-            //Utomhus.SorteringFuktighet();
-            //Utomhus.MögelRisk();
-            //Console.WriteLine("________________");
-            //Inomhus.SökmöjlighetInne();
-            //Inomhus.SorteringMedeltemperaturInne();
-            //Inomhus.SorteringFuktighetInne();
-            //Inomhus.MögelRiskInne();
-            //Inomhus.SökmöjlighetInne();
-            //Inomhus.MeteroligiskVinter();
-
-            // när vi skapar filerna använd delegate
+            MögelDelegat md = CalculateMögel;
+            Utomhus.MögelRisk(md);
+        }
+        public static double CalculateMögel(double temperature, double humidity)
+        {
+            return temperature + humidity;
         }
     }
 }

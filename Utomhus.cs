@@ -6,7 +6,7 @@ namespace GruppUppgift_Väderdata
 {
     public static class Utomhus
     {
-        static string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)";
+        static string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(-?\d+\.\d+),(\d+)";
         static string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt";
         public static void ViewBox(this string input)
         {
@@ -82,7 +82,7 @@ namespace GruppUppgift_Väderdata
                 })
                 .Where(x => x != null)
                 .GroupBy(x => x.Date)
-                .OrderBy(group => group.Average(d => d.Temperature))
+              //  .OrderBy(group => group.Average(d => d.Temperature))
                 .ToList();
 
             foreach (var group in dataByDate)
@@ -136,8 +136,9 @@ namespace GruppUppgift_Väderdata
 
             }
         }
-        public static void MögelRisk()
+        public static void MögelRisk(Program.MögelDelegat md)
         {
+            
             Regex regex = new Regex(pattern);
             string[] lines = System.IO.File.ReadAllLines(filename);
             var temperatureData = new List<double>();
@@ -175,18 +176,21 @@ namespace GruppUppgift_Väderdata
                 })
                .Where(x => x != null)
                 .GroupBy(x => x.Date)
-                .OrderBy(group => group.Average(averageHumidity => averageHumidity.Humidity))
+                .OrderBy(group => md(group.Average(averageHumidity => averageHumidity.Humidity), group.Average(averageTemperature => averageTemperature.Temperature)))
                 .ToList();
+            Console.WriteLine("Högst risk för mögel i omvändordning");
             foreach (var group in dataByDate)
             {
                 double avgTemperature = group.Average(d => d.Temperature);
                 double avgHumidity = group.Average(d => d.Humidity);
+                double mögelIndex = md(avgHumidity, avgTemperature);
                 if (avgHumidity >= 70 && avgTemperature >= 10)
                 {
-                    Console.WriteLine("Högst risk för mögel i omvändordning");
                     Console.WriteLine("Datum: {0}", group.Key);
                     Console.WriteLine("Medel Luftfuktighet: {0:F2}", group.Average(d => d.Humidity));
                     Console.WriteLine("Medel Temperatur: {0:F2}", group.Average(d => d.Temperature));
+                    Console.WriteLine("Index: {0:F}", mögelIndex);
+                    Console.WriteLine("--------------------------------------------------------");
                 }
             }
         }
@@ -257,7 +261,78 @@ namespace GruppUppgift_Väderdata
                 }
                 else
                 {
-                    count = 0; //s
+                    count = 0;
+                }
+            }
+        }
+        public static void metelogiskVinter()
+        {
+            Regex regex = new Regex(pattern);
+            string[] lines = System.IO.File.ReadAllLines(filename);
+            var temperatureData = new List<double>();
+            var LuftfuktighetData = new List<double>();
+            foreach (string line in lines)
+            {
+                Match match = regex.Match(line);
+                string date = match.Groups[1].Value;
+                string time = match.Groups[2].Value;
+                string location = match.Groups[3].Value;
+                string temperature = match.Groups[4].Value.Replace(".", ",");
+                string humidity = match.Groups[5].Value;
+                double medeltemp;
+                double medelluftfuktighet;
+                if (double.TryParse(temperature, out medeltemp) && double.TryParse(humidity, out medelluftfuktighet) && location == "Ute")
+                {
+                    temperatureData.Add(medeltemp);
+                    LuftfuktighetData.Add(medelluftfuktighet);
+                }
+            }
+            var dataByDate = lines
+                            .Select(line =>
+                            {
+                                Match match = regex.Match(line);
+                                string date = match.Groups[1].Value;
+                                string temperature = match.Groups[4].Value.Replace(".", ",");
+                                string humidity = match.Groups[5].Value;
+                                double medeltemp;
+                                double medelluftfuktighet;
+                                if (double.TryParse(temperature, out medeltemp) && double.TryParse(humidity, out medelluftfuktighet) && match.Groups[3].Value == "Ute")
+                                {
+                                    return new { Date = date, Temperature = medeltemp, Humidity = medelluftfuktighet };
+                                }
+                                return null;
+                            })
+                            .Where(x => x != null)
+                            .GroupBy(x => x.Date)
+                            .OrderBy(x => DateTime.ParseExact(x.Key, "yyyy-MM-dd", CultureInfo.InvariantCulture))
+                            .ToList();
+            int count = 0;
+            DateTime firstDate = DateTime.MinValue;
+            foreach (var group in dataByDate)
+            {
+                DateTime date = DateTime.ParseExact(group.Key, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                double avgTemperature = group.Average(d => d.Temperature);
+
+                if (avgTemperature <= 1 && date.Month >= 12 && date.Month <= 02)
+                {
+                    count++;
+                    if (count == 1)
+                    {
+                        firstDate = date;
+                    }
+                    if (count >= 5)
+                    {
+                        Console.WriteLine("Första datumet: {0}", firstDate.ToString("yyyy-MM-dd"));
+                        Console.WriteLine("Sista datumet: {0}", date.ToString("yyyy-MM-dd"));
+                        Console.WriteLine("Medel Temperatur: {0:F2}", group.Average(d => d.Temperature));
+                        Console.WriteLine();
+                        count = 0;
+                        firstDate = DateTime.MinValue;
+                    }
+                }
+                else
+                {
+                    count = 0;
                 }
             }
         }
