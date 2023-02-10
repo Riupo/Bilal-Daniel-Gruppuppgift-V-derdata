@@ -4,6 +4,8 @@ namespace GruppUppgift_Väderdata
 {
     public static class Utomhus
     {
+        static string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)";
+        static string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt";
         public static void ViewBox(this string input)
         {
             Console.WriteLine(new String('-', input.Length + 4));
@@ -13,9 +15,7 @@ namespace GruppUppgift_Väderdata
 
         public static void Sökmöjlighet()
         {
-            string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)";
             Regex regex = new Regex(pattern);
-            string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Textfiler\tempdata5-med fel.txt";
             string[] lines = System.IO.File.ReadAllLines(filename);
             Console.WriteLine("Ange datumet du vill kolla medeltemperaturen och medelluftfuktighet på");
             string datum = Console.ReadLine();
@@ -49,9 +49,7 @@ namespace GruppUppgift_Väderdata
 
         public static void SorteringMedeltemperatur()
         {
-            string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)";
             Regex regex = new Regex(pattern);
-            string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Textfiler\tempdata5-med fel.txt";
             string[] lines = System.IO.File.ReadAllLines(filename);
             var temperatureData = new List<double>();
             foreach (string line in lines)
@@ -95,9 +93,7 @@ namespace GruppUppgift_Väderdata
 
         public static void SorteringFuktighet()
         {
-            string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)";
             Regex regex = new Regex(pattern);
-            string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Textfiler\tempdata5-med fel.txt";
             string[] lines = System.IO.File.ReadAllLines(filename);
             var LuftfuktighetData = new List<double>();
             foreach (string line in lines)
@@ -140,9 +136,7 @@ namespace GruppUppgift_Väderdata
         }
         public static void MögelRisk()
         {
-            string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(\d+\.\d+),(\d+)";
             Regex regex = new Regex(pattern);
-            string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Textfiler\tempdata5-med fel.txt";
             string[] lines = System.IO.File.ReadAllLines(filename);
             var temperatureData = new List<double>();
             var LuftfuktighetData = new List<double>();
@@ -191,7 +185,6 @@ namespace GruppUppgift_Väderdata
                     Console.WriteLine("Datum: {0}", group.Key);
                     Console.WriteLine("Medel Luftfuktighet: {0:F2}", group.Average(d => d.Humidity));
                     Console.WriteLine("Medel Temperatur: {0:F2}", group.Average(d => d.Temperature));
-
                 }
             }
         }
