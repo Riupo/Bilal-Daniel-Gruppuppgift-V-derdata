@@ -24,6 +24,17 @@ namespace GruppUppgift_Väderdata
             Meterolisk_höst,
             mögelrisk,
             Meterlogisk_vinter,
+            Tillbaka = 8,
+
+            Quit = 9
+        }
+        enum MenuListInomhus
+        {
+            sökverktyg = 1,
+            Medeltemperatur,
+            Medeluftuktighet,
+            mögelrisk,
+            Tillbaka = 8,
 
             Quit = 9
         }
@@ -58,7 +69,7 @@ namespace GruppUppgift_Väderdata
                         break;
 
                     case MenuList.inomhus:
-                        Console.WriteLine(DateTime.Now);
+                        ShowInomhus();
                         break;
 
                     case MenuList.Quit:
@@ -120,6 +131,61 @@ namespace GruppUppgift_Väderdata
 
                     case MenuListUtomhus.Quit:
                         loop = false;
+                        break;
+                    case MenuListUtomhus.Tillbaka:
+                        EnumMetod.Show();
+                        break;
+                }
+            }
+        }
+        public static void ShowInomhus()
+        {
+            bool loop = true;
+            while (loop)
+            {
+
+
+                foreach (int i in Enum.GetValues(typeof(MenuListInomhus)))
+                {
+                    Console.WriteLine($"{i}. {Enum.GetName(typeof(MenuListInomhus), i).Replace('_', ' ')}"); // Tecknen med mellanslag för så att vi får mellalsag när vi skriver ut.
+                }
+
+                int nr;
+                MenuListInomhus menu = (MenuListInomhus)99; //Default
+                if (int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out nr))
+                {
+                    menu = (MenuListInomhus)nr;
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("Fel inmatining");
+                }
+
+                switch (menu)
+                {
+                    case MenuListInomhus.sökverktyg:
+                        Utomhus.Sökmöjlighet();
+                        break;
+
+                    case MenuListInomhus.Medeltemperatur:
+                        Utomhus.SorteringMedeltemperatur();
+                        break;
+
+                    case MenuListInomhus.Medeluftuktighet:
+                        Utomhus.SorteringFuktighet();
+                        break;
+                        
+                    case MenuListInomhus.mögelrisk:
+                        MögelDelegat md = CalculateMögel;
+                        Utomhus.MögelRisk(md);
+                        break;
+
+                    case MenuListInomhus.Quit:
+                        loop = false;
+                        break;
+                    case MenuListInomhus.Tillbaka:
+                        EnumMetod.Show();
                         break;
                 }
             }
