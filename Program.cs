@@ -6,7 +6,13 @@
 
         static void Main(string[] args)
         {
-            EnumMetod.Show();
+            //TextFiler.SorteringMedeltemperatur();
+            //Textfilerläser.ReadAllMedeltemperatur();
+            //  TextFiler.SorteringMedelLuftfuktighet();
+            //MögelDelegat md = CalculateMögel;
+            //TextFiler.SorteringMögelrisk(md);
+            //TextFiler.TextFilMeterologisk();
+            TextFiler.AlgoritmFörMögel();
         }
         public static double CalculateMögel(double temperature, double humidity)
         {

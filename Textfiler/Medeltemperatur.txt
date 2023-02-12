@@ -1,0 +1,84 @@
+Månad: maj
+Plats: Inne
+Medeltemperatur: 25,16
+-----------------------------------------------------------
+Månad: maj
+Plats: Ute
+Medeltemperatur: 25,33
+-----------------------------------------------------------
+Månad: juni
+Plats: Inne
+Medeltemperatur: 24,70
+-----------------------------------------------------------
+Månad: juni
+Plats: Ute
+Medeltemperatur: 15,85
+-----------------------------------------------------------
+Månad: juli
+Plats: Ute
+Medeltemperatur: 20,24
+-----------------------------------------------------------
+Månad: juli
+Plats: Inne
+Medeltemperatur: 26,28
+-----------------------------------------------------------
+Månad: augusti
+Plats: Ute
+Medeltemperatur: 18,07
+-----------------------------------------------------------
+Månad: augusti
+Plats: Inne
+Medeltemperatur: 25,57
+-----------------------------------------------------------
+Månad: september
+Plats: Ute
+Medeltemperatur: 16,16
+-----------------------------------------------------------
+Månad: september
+Plats: Inne
+Medeltemperatur: 23,31
+-----------------------------------------------------------
+Månad: september
+Plats: ne
+Medeltemperatur: 23,60
+-----------------------------------------------------------
+Månad: oktober
+Plats: Ute
+Medeltemperatur: 8,18
+-----------------------------------------------------------
+Månad: oktober
+Plats: Inne
+Medeltemperatur: 22,41
+-----------------------------------------------------------
+Månad: oktober
+Plats: ne
+Medeltemperatur: 23,30
+-----------------------------------------------------------
+Månad: november
+Plats: Inne
+Medeltemperatur: 22,78
+-----------------------------------------------------------
+Månad: november
+Plats: Ute
+Medeltemperatur: 3,31
+-----------------------------------------------------------
+Månad: november
+Plats: te
+Medeltemperatur: -1,10
+-----------------------------------------------------------
+Månad: december
+Plats: Ute
+Medeltemperatur: 2,51
+-----------------------------------------------------------
+Månad: december
+Plats: Inne
+Medeltemperatur: 21,84
+-----------------------------------------------------------
+Månad: januari
+Plats: Inne
+Medeltemperatur: 21,36
+-----------------------------------------------------------
+Månad: januari
+Plats: Ute
+Medeltemperatur: 3,80
+-----------------------------------------------------------

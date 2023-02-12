@@ -1,0 +1,252 @@
+Månad: maj
+Plats: Inne
+MedelLuftfuktighet: 37,64
+MedelTemperatur: 25,16
+Index: 62,79
+-----------------------------------------------------------
+Månad: maj
+Plats: Ute
+MedelLuftfuktighet: 32,37
+MedelTemperatur: 25,33
+Index: 57,70
+-----------------------------------------------------------
+Månad: juni
+Plats: Inne
+MedelLuftfuktighet: 28,76
+MedelTemperatur: 24,70
+Index: 53,46
+-----------------------------------------------------------
+Månad: juni
+Plats: Ute
+MedelLuftfuktighet: 53,21
+MedelTemperatur: 15,85
+Index: 69,06
+-----------------------------------------------------------
+Månad: juli
+Plats: Ute
+MedelLuftfuktighet: 52,99
+MedelTemperatur: 20,24
+Index: 73,23
+-----------------------------------------------------------
+Månad: juli
+Plats: Inne
+MedelLuftfuktighet: 41,63
+MedelTemperatur: 26,28
+Index: 67,92
+-----------------------------------------------------------
+Månad: augusti
+Plats: Ute
+MedelLuftfuktighet: 48,60
+MedelTemperatur: 18,07
+Index: 66,67
+-----------------------------------------------------------
+Månad: augusti
+Plats: Inne
+MedelLuftfuktighet: 34,60
+MedelTemperatur: 25,57
+Index: 60,16
+-----------------------------------------------------------
+Månad: september
+Plats: Ute
+MedelLuftfuktighet: 60,43
+MedelTemperatur: 16,16
+Index: 76,58
+-----------------------------------------------------------
+Månad: september
+Plats: Inne
+MedelLuftfuktighet: 41,60
+MedelTemperatur: 23,31
+Index: 64,92
+-----------------------------------------------------------
+Månad: september
+Plats: ne
+MedelLuftfuktighet: 36,00
+MedelTemperatur: 23,60
+Index: 59,60
+-----------------------------------------------------------
+Månad: oktober
+Plats: Ute
+MedelLuftfuktighet: 64,58
+MedelTemperatur: 8,18
+Index: 72,76
+-----------------------------------------------------------
+Månad: oktober
+Plats: Inne
+MedelLuftfuktighet: 27,27
+MedelTemperatur: 22,41
+Index: 49,68
+-----------------------------------------------------------
+Månad: oktober
+Plats: ne
+MedelLuftfuktighet: 30,00
+MedelTemperatur: 23,30
+Index: 53,30
+-----------------------------------------------------------
+Månad: november
+Plats: Inne
+MedelLuftfuktighet: 19,07
+MedelTemperatur: 22,78
+Index: 41,85
+-----------------------------------------------------------
+Månad: november
+Plats: Ute
+MedelLuftfuktighet: 83,49
+MedelTemperatur: 3,31
+Index: 86,80
+-----------------------------------------------------------
+Månad: november
+Plats: te
+MedelLuftfuktighet: 91,00
+MedelTemperatur: -1,10
+Index: 89,90
+-----------------------------------------------------------
+Månad: december
+Plats: Ute
+MedelLuftfuktighet: 77,93
+MedelTemperatur: 2,51
+Index: 80,44
+-----------------------------------------------------------
+Månad: december
+Plats: Inne
+MedelLuftfuktighet: 15,82
+MedelTemperatur: 21,84
+Index: 37,66
+-----------------------------------------------------------
+Månad: januari
+Plats: Inne
+MedelLuftfuktighet: 18,00
+MedelTemperatur: 21,36
+Index: 39,36
+-----------------------------------------------------------
+Månad: januari
+Plats: Ute
+MedelLuftfuktighet: 95,00
+MedelTemperatur: 3,80
+Index: 98,80
+-----------------------------------------------------------
+Månad: maj
+Plats: Inne
+MedelLuftfuktighet: 37,64
+MedelTemperatur: 25,16
+Index: 62,79
+-----------------------------------------------------------
+Månad: maj
+Plats: Ute
+MedelLuftfuktighet: 32,37
+MedelTemperatur: 25,33
+Index: 57,70
+-----------------------------------------------------------
+Månad: juni
+Plats: Inne
+MedelLuftfuktighet: 28,76
+MedelTemperatur: 24,70
+Index: 53,46
+-----------------------------------------------------------
+Månad: juni
+Plats: Ute
+MedelLuftfuktighet: 53,21
+MedelTemperatur: 15,85
+Index: 69,06
+-----------------------------------------------------------
+Månad: juli
+Plats: Ute
+MedelLuftfuktighet: 52,99
+MedelTemperatur: 20,24
+Index: 73,23
+-----------------------------------------------------------
+Månad: juli
+Plats: Inne
+MedelLuftfuktighet: 41,63
+MedelTemperatur: 26,28
+Index: 67,92
+-----------------------------------------------------------
+Månad: augusti
+Plats: Ute
+MedelLuftfuktighet: 48,60
+MedelTemperatur: 18,07
+Index: 66,67
+-----------------------------------------------------------
+Månad: augusti
+Plats: Inne
+MedelLuftfuktighet: 34,60
+MedelTemperatur: 25,57
+Index: 60,16
+-----------------------------------------------------------
+Månad: september
+Plats: Ute
+MedelLuftfuktighet: 60,43
+MedelTemperatur: 16,16
+Index: 76,58
+-----------------------------------------------------------
+Månad: september
+Plats: Inne
+MedelLuftfuktighet: 41,60
+MedelTemperatur: 23,31
+Index: 64,92
+-----------------------------------------------------------
+Månad: september
+Plats: ne
+MedelLuftfuktighet: 36,00
+MedelTemperatur: 23,60
+Index: 59,60
+-----------------------------------------------------------
+Månad: oktober
+Plats: Ute
+MedelLuftfuktighet: 64,58
+MedelTemperatur: 8,18
+Index: 72,76
+-----------------------------------------------------------
+Månad: oktober
+Plats: Inne
+MedelLuftfuktighet: 27,27
+MedelTemperatur: 22,41
+Index: 49,68
+-----------------------------------------------------------
+Månad: oktober
+Plats: ne
+MedelLuftfuktighet: 30,00
+MedelTemperatur: 23,30
+Index: 53,30
+-----------------------------------------------------------
+Månad: november
+Plats: Inne
+MedelLuftfuktighet: 19,07
+MedelTemperatur: 22,78
+Index: 41,85
+-----------------------------------------------------------
+Månad: november
+Plats: Ute
+MedelLuftfuktighet: 83,49
+MedelTemperatur: 3,31
+Index: 86,80
+-----------------------------------------------------------
+Månad: november
+Plats: te
+MedelLuftfuktighet: 91,00
+MedelTemperatur: -1,10
+Index: 89,90
+-----------------------------------------------------------
+Månad: december
+Plats: Ute
+MedelLuftfuktighet: 77,93
+MedelTemperatur: 2,51
+Index: 80,44
+-----------------------------------------------------------
+Månad: december
+Plats: Inne
+MedelLuftfuktighet: 15,82
+MedelTemperatur: 21,84
+Index: 37,66
+-----------------------------------------------------------
+Månad: januari
+Plats: Inne
+MedelLuftfuktighet: 18,00
+MedelTemperatur: 21,36
+Index: 39,36
+-----------------------------------------------------------
+Månad: januari
+Plats: Ute
+MedelLuftfuktighet: 95,00
+MedelTemperatur: 3,80
+Index: 98,80
+-----------------------------------------------------------

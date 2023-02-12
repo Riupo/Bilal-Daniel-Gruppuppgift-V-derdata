@@ -1,0 +1,84 @@
+Månad: maj
+Plats: Inne
+Luftfuktighet: 37,64
+-----------------------------------------------------------
+Månad: maj
+Plats: Ute
+Luftfuktighet: 32,37
+-----------------------------------------------------------
+Månad: juni
+Plats: Inne
+Luftfuktighet: 28,76
+-----------------------------------------------------------
+Månad: juni
+Plats: Ute
+Luftfuktighet: 53,21
+-----------------------------------------------------------
+Månad: juli
+Plats: Ute
+Luftfuktighet: 52,99
+-----------------------------------------------------------
+Månad: juli
+Plats: Inne
+Luftfuktighet: 41,63
+-----------------------------------------------------------
+Månad: augusti
+Plats: Ute
+Luftfuktighet: 48,60
+-----------------------------------------------------------
+Månad: augusti
+Plats: Inne
+Luftfuktighet: 34,60
+-----------------------------------------------------------
+Månad: september
+Plats: Ute
+Luftfuktighet: 60,43
+-----------------------------------------------------------
+Månad: september
+Plats: Inne
+Luftfuktighet: 41,60
+-----------------------------------------------------------
+Månad: september
+Plats: ne
+Luftfuktighet: 36,00
+-----------------------------------------------------------
+Månad: oktober
+Plats: Ute
+Luftfuktighet: 64,58
+-----------------------------------------------------------
+Månad: oktober
+Plats: Inne
+Luftfuktighet: 27,27
+-----------------------------------------------------------
+Månad: oktober
+Plats: ne
+Luftfuktighet: 30,00
+-----------------------------------------------------------
+Månad: november
+Plats: Inne
+Luftfuktighet: 19,07
+-----------------------------------------------------------
+Månad: november
+Plats: Ute
+Luftfuktighet: 83,49
+-----------------------------------------------------------
+Månad: november
+Plats: te
+Luftfuktighet: 91,00
+-----------------------------------------------------------
+Månad: december
+Plats: Ute
+Luftfuktighet: 77,93
+-----------------------------------------------------------
+Månad: december
+Plats: Inne
+Luftfuktighet: 15,82
+-----------------------------------------------------------
+Månad: januari
+Plats: Inne
+Luftfuktighet: 18,00
+-----------------------------------------------------------
+Månad: januari
+Plats: Ute
+Luftfuktighet: 95,00
+-----------------------------------------------------------

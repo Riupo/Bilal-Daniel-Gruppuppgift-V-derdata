@@ -1,0 +1,112 @@
+Första datumet: 2016-10-04
+Sista datumet: 2016-10-08
+Medel Temperatur: 8,40
+-------------------------------------------------
+Första datumet: 2016-10-09
+Sista datumet: 2016-10-13
+Medel Temperatur: 7,22
+-------------------------------------------------
+Första datumet: 2016-10-14
+Sista datumet: 2016-10-21
+Medel Temperatur: 7,53
+-------------------------------------------------
+Första datumet: 2016-10-22
+Sista datumet: 2016-10-26
+Medel Temperatur: 5,10
+-------------------------------------------------
+Första datumet: 2016-10-29
+Sista datumet: 2016-11-02
+Medel Temperatur: 1,52
+-------------------------------------------------
+Första datumet: 2016-11-03
+Sista datumet: 2016-11-07
+Medel Temperatur: -2,00
+-------------------------------------------------
+Första datumet: 2016-11-08
+Sista datumet: 2016-11-12
+Medel Temperatur: 0,59
+-------------------------------------------------
+Första datumet: 2016-11-13
+Sista datumet: 2016-11-17
+Medel Temperatur: 9,49
+-------------------------------------------------
+Första datumet: 2016-11-23
+Sista datumet: 2016-11-27
+Medel Temperatur: 1,42
+-------------------------------------------------
+Första datumet: 2016-11-28
+Sista datumet: 2016-12-02
+Medel Temperatur: 0,31
+-------------------------------------------------
+Första datumet: 2016-12-03
+Sista datumet: 2016-12-07
+Medel Temperatur: 1,85
+-------------------------------------------------
+Första datumet: 2016-12-08
+Sista datumet: 2016-12-12
+Medel Temperatur: -2,90
+-------------------------------------------------
+Första datumet: 2016-12-13
+Sista datumet: 2016-12-17
+Medel Temperatur: 3,97
+-------------------------------------------------
+Första datumet: 2016-12-18
+Sista datumet: 2016-12-22
+Medel Temperatur: 7,00
+-------------------------------------------------
+Första datumet: 2016-10-04
+Sista datumet: 2016-10-08
+Medel Temperatur: 8,40
+-------------------------------------------------
+Första datumet: 2016-10-09
+Sista datumet: 2016-10-13
+Medel Temperatur: 7,22
+-------------------------------------------------
+Första datumet: 2016-10-14
+Sista datumet: 2016-10-21
+Medel Temperatur: 7,53
+-------------------------------------------------
+Första datumet: 2016-10-22
+Sista datumet: 2016-10-26
+Medel Temperatur: 5,10
+-------------------------------------------------
+Första datumet: 2016-10-29
+Sista datumet: 2016-11-02
+Medel Temperatur: 1,52
+-------------------------------------------------
+Första datumet: 2016-11-03
+Sista datumet: 2016-11-07
+Medel Temperatur: -2,00
+-------------------------------------------------
+Första datumet: 2016-11-08
+Sista datumet: 2016-11-12
+Medel Temperatur: 0,59
+-------------------------------------------------
+Första datumet: 2016-11-13
+Sista datumet: 2016-11-17
+Medel Temperatur: 9,49
+-------------------------------------------------
+Första datumet: 2016-11-23
+Sista datumet: 2016-11-27
+Medel Temperatur: 1,42
+-------------------------------------------------
+Första datumet: 2016-11-28
+Sista datumet: 2016-12-02
+Medel Temperatur: 0,31
+-------------------------------------------------
+Första datumet: 2016-12-03
+Sista datumet: 2016-12-07
+Medel Temperatur: 1,85
+-------------------------------------------------
+Första datumet: 2016-12-08
+Sista datumet: 2016-12-12
+Medel Temperatur: -2,90
+-------------------------------------------------
+Första datumet: 2016-12-13
+Sista datumet: 2016-12-17
+Medel Temperatur: 3,97
+-------------------------------------------------
+Första datumet: 2016-12-18
+Sista datumet: 2016-12-22
+Medel Temperatur: 7,00
+-------------------------------------------------
