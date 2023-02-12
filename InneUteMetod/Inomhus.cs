@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace GruppUppgift_Väderdata
+namespace GruppUppgift_Väderdata.InneUteMetod
 {
     public class Inomhus
     {
@@ -11,7 +11,7 @@ namespace GruppUppgift_Väderdata
         {
             Regex regex = new Regex(pattern);
 
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             Console.WriteLine("Ange datumet du vill kolla medeltemperaturen på");
             string datum = Console.ReadLine();
             var temperatureData = new List<double>();
@@ -39,7 +39,7 @@ namespace GruppUppgift_Väderdata
         public static void SorteringMedeltemperaturInne()
         {
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             var temperatureData = new List<double>();
             foreach (string line in lines)
             {
@@ -81,7 +81,7 @@ namespace GruppUppgift_Väderdata
         public static void SorteringFuktighetInne()
         {
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             var LuftfuktighetData = new List<double>();
             foreach (string line in lines)
             {
@@ -124,7 +124,7 @@ namespace GruppUppgift_Väderdata
         public static void MögelRiskInne()
         {
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             var temperatureData = new List<double>();
             var LuftfuktighetData = new List<double>();
             foreach (string line in lines)

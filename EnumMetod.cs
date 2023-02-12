@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GruppUppgift_Väderdata.InneUteMetod;
+using GruppUppgift_Väderdata.TextfilMetod;
 using static GruppUppgift_Väderdata.Program;
 
 namespace GruppUppgift_Väderdata
@@ -13,6 +10,7 @@ namespace GruppUppgift_Väderdata
         {
             utomhus = 1,
             inomhus,
+            texfiler,
 
             Quit = 9
         }
@@ -35,6 +33,17 @@ namespace GruppUppgift_Väderdata
             Medeluftuktighet,
             mögelrisk,
             Tillbaka = 8,
+
+            Quit = 9
+        }
+        enum MenuListTextFiler
+        {
+            Medeltemperatur_Inne_Ute_Månad = 1,
+            Medelluftfuktighet_Inne_Ute_Månad,
+            Mögelrisk_Inne_Ute_Månad,
+            Datum_höst_vinter_2016,
+
+            tillbaka = 8,
 
             Quit = 9
         }
@@ -65,11 +74,17 @@ namespace GruppUppgift_Väderdata
                 switch (menu)
                 {
                     case MenuList.utomhus:
+                        Console.Clear();
                         ShowUtomhus();
                         break;
 
                     case MenuList.inomhus:
+                        Console.Clear();
                         ShowInomhus();
+                        break;
+                    case MenuList.texfiler:
+                        Console.Clear();
+                        ShowTexfiler();
                         break;
 
                     case MenuList.Quit:
@@ -105,34 +120,42 @@ namespace GruppUppgift_Väderdata
                 switch (menu)
                 {
                     case MenuListUtomhus.sökverktyg:
+                        Console.Clear();
                         Utomhus.Sökmöjlighet();
                         break;
 
                     case MenuListUtomhus.Medeltemperatur:
+                        Console.Clear();
                         Utomhus.SorteringMedeltemperatur();
                         break;
 
                     case MenuListUtomhus.Medeluftuktighet:
+                        Console.Clear();
                         Utomhus.SorteringFuktighet();
                         break;
 
                     case MenuListUtomhus.Meterlogisk_vinter:
+                        Console.Clear();
                         Utomhus.metelogiskVinter();
                         break;
 
                     case MenuListUtomhus.Meterolisk_höst:
+                        Console.Clear();
                         Utomhus.metelogiskHöst();
                         break;
 
                     case MenuListUtomhus.mögelrisk:
+                        Console.Clear();
                         MögelDelegat md = CalculateMögel;
                         Utomhus.MögelRisk(md);
                         break;
 
                     case MenuListUtomhus.Quit:
+                        Console.Clear();
                         loop = false;
                         break;
                     case MenuListUtomhus.Tillbaka:
+                        Console.Clear();
                         EnumMetod.Show();
                         break;
                 }
@@ -165,26 +188,86 @@ namespace GruppUppgift_Väderdata
                 switch (menu)
                 {
                     case MenuListInomhus.sökverktyg:
+                        Console.Clear();
                         Utomhus.Sökmöjlighet();
                         break;
 
                     case MenuListInomhus.Medeltemperatur:
+                        Console.Clear();
                         Utomhus.SorteringMedeltemperatur();
                         break;
 
                     case MenuListInomhus.Medeluftuktighet:
+                        Console.Clear();
                         Utomhus.SorteringFuktighet();
                         break;
-                        
+
                     case MenuListInomhus.mögelrisk:
+                        Console.Clear();
                         MögelDelegat md = CalculateMögel;
                         Utomhus.MögelRisk(md);
                         break;
 
                     case MenuListInomhus.Quit:
+                        Console.Clear();
                         loop = false;
                         break;
                     case MenuListInomhus.Tillbaka:
+                        Console.Clear();
+                        EnumMetod.Show();
+                        break;
+                }
+            }
+        }
+        public static void ShowTexfiler()
+        {
+            bool loop = true;
+            while (loop)
+            {
+
+
+                foreach (int i in Enum.GetValues(typeof(MenuListTextFiler)))
+                {
+                    Console.WriteLine($"{i}. {Enum.GetName(typeof(MenuListTextFiler), i).Replace('_', ' ')}"); // Tecknen med mellanslag för så att vi får mellalsag när vi skriver ut.
+                }
+
+                int nr;
+                MenuListTextFiler menu = (MenuListTextFiler)99; //Default
+                if (int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out nr))
+                {
+                    menu = (MenuListTextFiler)nr;
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("Fel inmatining");
+                }
+
+                switch (menu)
+                {
+                    case MenuListTextFiler.Medeltemperatur_Inne_Ute_Månad:
+
+                        Console.Clear();
+                        Textfilerläser.ReadAllMedeltemperatur();
+                        break;
+
+                    case MenuListTextFiler.Medelluftfuktighet_Inne_Ute_Månad:
+                        Console.Clear();
+                        Textfilerläser.ReadAllLuftfuktighet();
+                        break;
+
+                    case MenuListTextFiler.Mögelrisk_Inne_Ute_Månad:
+                        Console.Clear();
+                        Textfilerläser.ReadAllAlgoritmMögel();
+                        break;
+
+                    case MenuListTextFiler.Datum_höst_vinter_2016:
+                        Console.Clear();
+                        Textfilerläser.ReadAllMeterolgisk();
+                        break;
+
+                    case MenuListTextFiler.tillbaka:
+                        Console.Clear();
                         EnumMetod.Show();
                         break;
                 }
@@ -192,6 +275,6 @@ namespace GruppUppgift_Väderdata
         }
     }
 }
-        
-    
+
+
 

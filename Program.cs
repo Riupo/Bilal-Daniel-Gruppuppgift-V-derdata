@@ -1,4 +1,6 @@
-﻿namespace GruppUppgift_Väderdata
+﻿using GruppUppgift_Väderdata.TextfilMetod;
+
+namespace GruppUppgift_Väderdata
 {
     public class Program
     {
@@ -6,13 +8,7 @@
 
         static void Main(string[] args)
         {
-            //TextFiler.SorteringMedeltemperatur();
-            //Textfilerläser.ReadAllMedeltemperatur();
-            //  TextFiler.SorteringMedelLuftfuktighet();
-            //MögelDelegat md = CalculateMögel;
-            //TextFiler.SorteringMögelrisk(md);
-            //TextFiler.TextFilMeterologisk();
-            TextFiler.AlgoritmFörMögel();
+            EnumMetod.Show();
         }
         public static double CalculateMögel(double temperature, double humidity)
         {

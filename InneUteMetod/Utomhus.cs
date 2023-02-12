@@ -2,7 +2,7 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
-namespace GruppUppgift_Väderdata
+namespace GruppUppgift_Väderdata.InneUteMetod
 {
     public static class Utomhus
     {
@@ -10,15 +10,15 @@ namespace GruppUppgift_Väderdata
         static string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt";
         public static void ViewBox(this string input)
         {
-            Console.WriteLine(new String('-', input.Length + 4));
+            Console.WriteLine(new string('-', input.Length + 4));
             Console.WriteLine("| " + input + " |");
-            Console.WriteLine(new String('-', input.Length + 4));
+            Console.WriteLine(new string('-', input.Length + 4));
         }
 
         public static void Sökmöjlighet()
         {
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             Console.WriteLine("Ange datumet du vill kolla medeltemperaturen och medelluftfuktighet på");
             string datum = Console.ReadLine();
             var temperatureData = new List<double>();
@@ -52,7 +52,7 @@ namespace GruppUppgift_Väderdata
         public static void SorteringMedeltemperatur()
         {
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             var temperatureData = new List<double>();
             foreach (string line in lines)
             {
@@ -96,7 +96,7 @@ namespace GruppUppgift_Väderdata
         public static void SorteringFuktighet()
         {
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             var LuftfuktighetData = new List<double>();
             foreach (string line in lines)
             {
@@ -126,7 +126,7 @@ namespace GruppUppgift_Väderdata
                 })
                .Where(x => x != null)
                 .GroupBy(x => x.Date)
-                .OrderByDescending(group => group.Average(averageHumidity => averageHumidity.Humidity)) 
+                .OrderByDescending(group => group.Average(averageHumidity => averageHumidity.Humidity))
                 .ToList();
 
             foreach (var group in dataByDate)
@@ -138,9 +138,9 @@ namespace GruppUppgift_Väderdata
         }
         public static void MögelRisk(Program.MögelDelegat md)
         {
-            
+
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             var temperatureData = new List<double>();
             var LuftfuktighetData = new List<double>();
             foreach (string line in lines)
@@ -197,7 +197,7 @@ namespace GruppUppgift_Väderdata
         public static void metelogiskHöst()
         {
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             var temperatureData = new List<double>();
             foreach (string line in lines)
             {
@@ -206,10 +206,9 @@ namespace GruppUppgift_Väderdata
                 string time = match.Groups[2].Value;
                 string location = match.Groups[3].Value;
                 string temperature = match.Groups[4].Value.Replace(".", ",");
-                string humidity = match.Groups[5].Value;
                 double medeltemp;
                 double medelluftfuktighet;
-                if (double.TryParse(temperature, out medeltemp) && double.TryParse(humidity, out medelluftfuktighet) && location == "Ute")
+                if (double.TryParse(temperature, out medeltemp) && location == "Ute")
                 {
                     temperatureData.Add(medeltemp);
                 }
@@ -231,7 +230,7 @@ namespace GruppUppgift_Väderdata
                             })
                             .Where(x => x != null)
                             .GroupBy(x => x.Date)
-                          //  .OrderBy(x => DateTime.ParseExact(x.Key, "yyyy-MM-dd", CultureInfo.InvariantCulture))
+                            //  .OrderBy(x => DateTime.ParseExact(x.Key, "yyyy-MM-dd", CultureInfo.InvariantCulture))
                             .ToList();
             int count = 0;
             DateTime firstDate = DateTime.MinValue;
@@ -266,7 +265,7 @@ namespace GruppUppgift_Väderdata
         public static void metelogiskVinter()
         {
             Regex regex = new Regex(pattern);
-            string[] lines = System.IO.File.ReadAllLines(filename);
+            string[] lines = File.ReadAllLines(filename);
             var temperatureData = new List<double>();
             var LuftfuktighetData = new List<double>();
             foreach (string line in lines)
@@ -276,13 +275,11 @@ namespace GruppUppgift_Väderdata
                 string time = match.Groups[2].Value;
                 string location = match.Groups[3].Value;
                 string temperature = match.Groups[4].Value.Replace(".", ",");
-                string humidity = match.Groups[5].Value;
                 double medeltemp;
                 double medelluftfuktighet;
-                if (double.TryParse(temperature, out medeltemp) && double.TryParse(humidity, out medelluftfuktighet) && location == "Ute")
+                if (double.TryParse(temperature, out medeltemp) && location == "Ute")
                 {
                     temperatureData.Add(medeltemp);
-                    LuftfuktighetData.Add(medelluftfuktighet);
                 }
             }
             var dataByDate = lines

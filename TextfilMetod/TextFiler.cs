@@ -1,27 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
+﻿using System.Globalization;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace GruppUppgift_Väderdata
+namespace GruppUppgift_Väderdata.TextfilMetod
 {
     internal class TextFiler
     {
         static string path = "../../../Textfiler/";
         static string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(-?\d+\.\d+),(\d+)";
-        static string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt";
+        static string filename = @"C:\Users\danie\source\repos\Väderdata\Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt";
         public static void SorteringMedeltemperatur()
         {
             using (StreamWriter streamWriter = new StreamWriter(path + "Medeltemperatur.txt", true))
             {
                 Regex regex = new Regex(pattern);
-                string[] lines = System.IO.File.ReadAllLines(filename);
+                string[] lines = File.ReadAllLines(filename);
                 var temperatureData = new List<double>();
                 foreach (string line in lines)
                 {
@@ -67,7 +59,7 @@ namespace GruppUppgift_Väderdata
             using (StreamWriter streamWriter = new StreamWriter(path + "MedelLuftfuktighet.txt", true))
             {
                 Regex regex = new Regex(pattern);
-                string[] lines = System.IO.File.ReadAllLines(filename);
+                string[] lines = File.ReadAllLines(filename);
                 var Fuktighetdata = new List<double>();
                 foreach (string line in lines)
                 {
@@ -113,7 +105,7 @@ namespace GruppUppgift_Väderdata
             using (StreamWriter streamWriter = new StreamWriter(path + "Mögelrisk.txt", true))
             {
                 Regex regex = new Regex(pattern);
-                string[] lines = System.IO.File.ReadAllLines(filename);
+                string[] lines = File.ReadAllLines(filename);
                 var temperatureData = new List<double>();
                 var LuftfuktighetData = new List<double>();
                 foreach (string line in lines)
@@ -143,25 +135,26 @@ namespace GruppUppgift_Väderdata
                         double medeltemp;
                         double medelluftfuktighet;
                         if (double.TryParse(temperature, out medeltemp) && double.TryParse(humidity, out medelluftfuktighet))
-                                                {
+                        {
                             return new { Month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Parse(date).Month), Location = location, Humidity = medelluftfuktighet, Temperature = medeltemp };
                         }
                         return null;
                     })
                    .Where(x => x != null)
                     .GroupBy(x => new { x.Month, x.Location })
+                    .OrderByDescending(group => md(group.Average(averageHumidity => averageHumidity.Humidity), group.Average(averageTemperature => averageTemperature.Temperature)))
                     .ToList();
                 foreach (var group in dataByDate)
                 {
                     double avgTemperature = group.Average(d => d.Temperature);
                     double avgHumidity = group.Average(d => d.Humidity);
                     double mögelIndex = md(avgHumidity, avgTemperature);
-                        streamWriter.WriteLine("Månad: {0}", group.Key.Month);
-                        streamWriter.WriteLine("Plats: {0}", group.Key.Location);
-                        streamWriter.WriteLine("MedelLuftfuktighet: {0:F2}", group.Average(d => d.Humidity));
+                    streamWriter.WriteLine("Månad: {0}", group.Key.Month);
+                    streamWriter.WriteLine("Plats: {0}", group.Key.Location);
+                    streamWriter.WriteLine("MedelLuftfuktighet: {0:F2}", group.Average(d => d.Humidity));
                     streamWriter.WriteLine("MedelTemperatur: {0:F2}", group.Average(d => d.Temperature));
                     streamWriter.WriteLine("Index: {0:F}", mögelIndex);
-                        streamWriter.WriteLine("-----------------------------------------------------------");
+                    streamWriter.WriteLine("-----------------------------------------------------------");
                 }
             }
         }
@@ -171,7 +164,7 @@ namespace GruppUppgift_Väderdata
             {
 
                 Regex regex = new Regex(pattern);
-                string[] lines = System.IO.File.ReadAllLines(filename);
+                string[] lines = File.ReadAllLines(filename);
                 var temperatureData = new List<double>();
                 foreach (string line in lines)
                 {
@@ -205,7 +198,7 @@ namespace GruppUppgift_Väderdata
                                 })
                                 .Where(x => x != null)
                                 .GroupBy(x => x.Date)
-                                //  .OrderBy(x => DateTime.ParseExact(x.Key, "yyyy-MM-dd", CultureInfo.InvariantCulture))
+                                //     .OrderBy(x => DateTime.ParseExact(x.Key, "yyyy-MM-dd", CultureInfo.InvariantCulture))
                                 .ToList();
                 int count = 0;
                 DateTime firstDate = DateTime.MinValue;
@@ -241,12 +234,5 @@ namespace GruppUppgift_Väderdata
                 }
             }
         }
-        public static void AlgoritmFörMögel()
-        {
-            using (StreamWriter streamWriter = new StreamWriter(path + "AlgortimMögel.txt", true))
-            {
-                streamWriter.WriteLine("Algoritm för mögell är: MedelLuftfuktighet + Medeltemperatur.");
-            }
-            }
     }
 }
