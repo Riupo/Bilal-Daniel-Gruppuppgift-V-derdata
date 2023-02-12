@@ -11,7 +11,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace GruppUppgift_Väderdata
 {
-    internal class TextFiler
+    internal class TextFiler //s
     {
         static string path = "../../../Textfiler/";
         static string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(-?\d+\.\d+),(\d+)";
