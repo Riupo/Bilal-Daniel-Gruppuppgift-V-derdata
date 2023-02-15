@@ -28,7 +28,7 @@
         }
         public static void ReadAllMeterolgisk()
         {
-            using (StreamReader reader = new StreamReader("../../../Textfiler/" + "Mögelrisk.txt"))
+            using (StreamReader reader = new StreamReader("../../../Textfiler/" + "Meterolgisk.txt"))
             {
                 string fileContent = reader.ReadToEnd();
                 Console.WriteLine(fileContent);

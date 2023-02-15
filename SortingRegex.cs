@@ -9,7 +9,7 @@ namespace GruppUppgift_Väderdata
             string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(-?\d+\.\d+),(\d+)";
             Regex regex = new Regex(pattern);
 
-            string filename = @"C:\Users\Bilal\OneDrive\Documents\Visual Studio 2022\Demos\GruppUppgift Väderdata\Textfiler\TextFile1.txt";
+            string filename = @"../../../Textfiler/tempdata5-med fel.txt";
             string[] lines = System.IO.File.ReadAllLines(filename);
             int count = 0;
             foreach (string line in lines)

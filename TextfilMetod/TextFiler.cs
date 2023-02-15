@@ -7,7 +7,7 @@ namespace GruppUppgift_Väderdata.TextfilMetod
     {
         static string path = "../../../Textfiler/";
         static string pattern = @"(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}),(\w+),(-?\d+\.\d+),(\d+)";
-        static string filename = @"C:\Users\danie\source\repos\Väderdata\Väderdata\Bilal-Daniel-Gruppuppgift-V-derdata\Textfiler\tempdata5-med fel.txt";
+       static string filename = @"../../../Textfiler/tempdata5-med fel.txt";
         public static void SorteringMedeltemperatur()
         {
             using (StreamWriter streamWriter = new StreamWriter(path + "Medeltemperatur.txt", true))

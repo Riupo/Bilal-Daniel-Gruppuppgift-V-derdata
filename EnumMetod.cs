@@ -189,23 +189,23 @@ namespace GruppUppgift_Väderdata
                 {
                     case MenuListInomhus.sökverktyg:
                         Console.Clear();
-                        Utomhus.Sökmöjlighet();
+                        Inomhus.SökmöjlighetInne();
                         break;
 
                     case MenuListInomhus.Medeltemperatur:
                         Console.Clear();
-                        Utomhus.SorteringMedeltemperatur();
+                        Inomhus.SorteringMedeltemperaturInne();
                         break;
 
                     case MenuListInomhus.Medeluftuktighet:
                         Console.Clear();
-                        Utomhus.SorteringFuktighet();
+                        Inomhus.SorteringFuktighetInne();
                         break;
 
                     case MenuListInomhus.mögelrisk:
                         Console.Clear();
                         MögelDelegat md = CalculateMögel;
-                        Utomhus.MögelRisk(md);
+                        Inomhus.MögelRiskInne();
                         break;
 
                     case MenuListInomhus.Quit:
